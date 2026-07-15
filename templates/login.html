@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Left Image Section -->
+    <div class="left-side">
+
+        <div>
+          
+
+            <p>
+                
+        </div>
+
+    </div>
+
+    <!-- Login Section -->
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <h1>Library Management System</h1>
+
+            <form action="/login" method="POST">
+
+                <input type="text"
+                name="username"
+                placeholder="Username"
+                required>
+
+                <input type="password"
+                name="password"
+                placeholder="Password"
+                required>
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="sidebar">
+
+    <div>
+        <h2><i class="fa-solid fa-book"></i> Library</h2>
+
+        <ul>
+            <li><a href="/dashboard"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="/books"><i class="fa-solid fa-book-open"></i> Books</a></li>
+            <li><a href="/issue_book"><i class="fa-solid fa-bookmark"></i> Issue Book</a></li>
+            <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="main-content">
+
+    <div class="topbar">
+        <h1>Library Dashboard</h1>
+
+        <div class="admin-box">
+            <i class="fa-solid fa-user"></i>
+            Admin
+        </div>
+    </div>
+<div class="card-container">
+
+    <div class="card">
+        <i class="fa-solid fa-book"></i>
+        <h2>Total Books</h2>
+        <p>{{ total_books }}</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-bookmark"></i>
+        <h2>Issued Books</h2>
+        <p>{{ issued_books }}</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-rotate-left"></i>
+        <h2>Returned Books</h2>
+        <p>{{ returned_books }}</p>
+        
+    </div>
+
+</div>
+   
+
+    </div>
+
+</div>
+
+</body>
+</html>

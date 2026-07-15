@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Book</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="sidebar">
+
+    <h2><i class="fa-solid fa-book"></i> Library</h2>
+
+    <ul>
+        <li><a href="/dashboard"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+        <li><a href="/books"><i class="fa-solid fa-book-open"></i> Books</a></li>
+        <li><a href="/issue_book"><i class="fa-solid fa-bookmark"></i> Issue Book</a></li>
+        <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+    </ul>
+
+</div>
+
+<div class="main-content">
+
+    <div class="topbar">
+        <h1>Issue Book</h1>
+    </div>
+
+    <form method="POST">
+
+        <input type="text"
+        name="student_name"
+        placeholder="Student Name"
+        required>
+
+        <input type="text"
+        name="book_name"
+        placeholder="Book Name"
+        required>
+
+        <input type="date"
+        name="issue_date"
+        required>
+
+        <button type="submit">Issue Book</button>
+
+    </form>
+
+    <br><br>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Book Name</th>
+            <th>Issue Date</th>
+            <th>Return Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for issue in issued_books %}
+
+        <tr>
+            <td>{{ issue[0] }}</td>
+            <td>{{ issue[1] }}</td>
+            <td>{{ issue[2] }}</td>
+            <td>{{ issue[3] }}</td>
+            <td>{{ issue[4] }}</td>
+            <td>{{ issue[5] }}</td>
+
+            <td>
+
+                {% if issue[5] == 'Issued' %}
+
+                <a href="/return_book/{{ issue[0] }}">
+                    <button>Return</button>
+                </a>
+
+                {% else %}
+
+                Returned
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
